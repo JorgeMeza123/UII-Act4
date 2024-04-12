@@ -1,43 +1,49 @@
+import 'package:meza/movies.dart';
+import 'package:meza/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:meza/pagina5.dart';
+import 'package:meza/pagina6.dart';
+import 'package:meza/pagina7.dart';
+import 'contact.dart';
+import 'home.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  static const String home = Home.routeName;
+  static const String profile = Profile.routeName;
+  static const String movies = Movies.routeName;
+  static const String contacts = Contact.routeName;
+  static const String pagina5 = Pagina5.routeName;
+  static const String pagina6 = Pagina6.routeName;
+  static const String pagina7 = Pagina7.routeName;
+
   const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Ejemplo Drawer Menu',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      routes: {
+        home: (context) => const Home(),
+        profile: (context) => const Profile(),
+        movies: (context) => const Movies(),
+        contacts: (context) => const Contact(),
+        pagina5: (context) => const Pagina5(),
+        // ignore: equal_keys_in_map
+        pagina6: (context) => const Pagina6(),
+        // ignore: equal_keys_in_map
+        pagina7: (context) => const Pagina7(),
+      },
+      home: const Home(),
     );
   }
 }
